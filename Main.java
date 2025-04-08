@@ -1,1 +1,11 @@
-Main.java
+import java.util.Arraylist;
+public class Main {
+    public static void main(String[] args) {
+        double[] temps = {
+            99.1, 142, 85, 86.1, 84.6,
+            94.3, 124.9, 98, 101, 102.5};
+            ArrayList<Double> t = new ArrayList<Double>();
+            for (double n : temps) t.add(n);
+        }
+        w.cleanData(85.0, 120.0);
+    }
