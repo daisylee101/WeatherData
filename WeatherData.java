@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class WeatherData
 {
     private ArrayList<Double> temperatures;
@@ -6,17 +8,31 @@ public class WeatherData
         temperatures = temps;
     }
   
-    public void cleanData(double lower, double upper)
-    for (int i = 0; i < temperatures.length; i++) {
+    public void cleanData(double lower, double upper) {
+    for (int i = 0; i < temperatures.size(); i++) {
         double temp = temperatures.get(i);
-        if (temp < lower || temp > upper)temperatures.remove(i);
+        if (temp < lower || temp > upper) {
+            temperatures.remove(i);
+            i--;
+        }
     }
+}
 
+public int longestHeatWave(double threshold) {
+    //return 0;
+    int heatWave = 0;
+    int max = 0;
+    for (double t : temperatures) {
+        if (t > threshold) {
+            heatWave++;
+            if (heatWave > max) max = heatWave; }
+            else {
+                heatWave = 0;
+            }
+        }
+        return max; }
 
-    public int longestHeatWave(double threshold)
-    int days;
-    for (int j = 0; j< temperatures.length; j++) {
-        if (temperatures[i] > threshold && temperatures[i+1] > threshold) days++; 
+    public String toString() {
+        return temperatures.toString(); 
     }
-   
 }
